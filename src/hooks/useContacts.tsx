@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 /**
  * This hook can be used to store and then create a list of contacts.
  * You can hook this function to a component, or to a parent component.
@@ -6,7 +6,5 @@ import React from "react"
  * @returns the list of contacts that were created
  */
 export const useContacts: React.FC = () => {
-  return (
-    <div>useContacts</div>
-  )
-}
+  return <div>useContacts</div>;
+};
