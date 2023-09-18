@@ -26,6 +26,12 @@ export const BankTransferForm = (props: FormData) => {
     console.log('[BankTransferForm - useEffect]', formValues);
   }, [isSubmitting]);
 
+  /**
+   * It is the main point of the whole implementation
+   * In the first implementation, the one that does not used the hook, we are forced to map the contact anc call the api here
+   * In the second implementation, the one that uses the hook, we just save the contact in the Context and we do not do any logic regarding the creation of the contact
+   * @param data BankTransferBody, it comes from the form
+   */
   const onSubmit = (data: BankTransferBody) => {
     console.log('[BankTransferForm - onSubmit]', data);
     console.log(
