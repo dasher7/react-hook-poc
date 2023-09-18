@@ -35,6 +35,7 @@ export default function BankTransferCompile() {
       surname: dataBody.beneficiary.split(' ')[0],
       type: ContactType.PERSON
     } as Contact;
+    console.log('[CreateContact] Step 4 - call the API to create a contact');
     useContactClient.create(contactToCreate);
   };
 
