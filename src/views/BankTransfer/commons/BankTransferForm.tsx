@@ -1,9 +1,12 @@
 import { Button, Grid, GridItem, Input, Select, Spinner, Text } from '@chakra-ui/react';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import OperationContext from '../../../context/OperationContext';
+import { OperationEnum } from '../../../ts/enums/operation/operation';
 import { FormData } from '../../../ts/interfaces/Form/Form';
 import { BankTransferBody } from '../../../ts/types/BankTransfer/BankTransfer';
+import { Operation } from '../../../ts/types/operation/operations';
 
 export const BankTransferForm = (props: FormData) => {
   const { setData } = props;
@@ -15,6 +18,7 @@ export const BankTransferForm = (props: FormData) => {
   } = useForm<BankTransferBody>();
 
   const navigate = useNavigate();
+  const operationContext = useContext(OperationContext);
 
   useEffect(() => {
     const formValues = getValues();
@@ -27,6 +31,13 @@ export const BankTransferForm = (props: FormData) => {
     console.log(
       '[CreateContact] Step 0 - we are getting values from the form and sending them to the main component'
     );
+    const operation: Operation = {
+      body: data,
+      type: OperationEnum.BANK_TRANSFER,
+      uid: '78798'
+    };
+    console.log('[BankTransferForm - onSubmit]: setting up context', operation);
+    operationContext.setOperationContext(operation);
     navigate('/bank-transfer-outcome');
   };
 

@@ -1,16 +1,13 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import OperationContext from '../../../context/OperationContext';
 import useContacts from '../../../hooks/useContacts';
-import { OperationEnum } from '../../../ts/enums/operation/operation';
 import { Operation } from '../../../ts/types/operation/operations';
 
-const MOCKED_OPERATION: Operation = {
-  type: OperationEnum.BANK_TRANSFER,
-  uid: '324832948',
-  body: {}
-};
-
 export const BankTransferOutcome = () => {
-  const contacts = useContacts({ operation: MOCKED_OPERATION });
+  const operationContext = useContext(OperationContext);
+  const contacts = useContacts({ operation: operationContext.operationContext as Operation });
+
+  console.log('[BankTransferOutcome - operationContext]', operationContext);
 
   useEffect(() => {
     contacts.createContact();
