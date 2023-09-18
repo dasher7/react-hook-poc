@@ -7,6 +7,10 @@ export const FormWrapper: React.FC<PropsWithChildren<FormWrapperProps>> = (
 ) => {
   const { data } = props;
 
+  console.log(
+    '[CreateContact] Step 2 - this is another child component, in our app we should have single and multiple operations, that means two wrapper'
+  );
+
   return (
     <SingleFormWrapper data={data} onCreateContact={props.onCreateContacts}>
       {props.children}

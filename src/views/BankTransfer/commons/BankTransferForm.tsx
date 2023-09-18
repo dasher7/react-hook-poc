@@ -24,6 +24,9 @@ export const BankTransferForm = (props: FormData) => {
 
   const onSubmit = (data: BankTransferBody) => {
     console.log('[BankTransferForm - onSubmit]', data);
+    console.log(
+      '[CreateContact] Step 0 - we are getting values from the form and sending them to the main component'
+    );
     navigate('/bank-transfer-outcome');
   };
 
