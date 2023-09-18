@@ -9,7 +9,7 @@ export default function BankTransferCompile() {
   const [data, setData] = useState<BankTransferBody | undefined>(undefined);
 
   useEffect(() => {
-    console.log(data);
+    console.log(['BankTransferCompile - useEffect'], data);
   }, [data]);
 
   const onCreateContact = (data: unknown) => {
