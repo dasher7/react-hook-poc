@@ -10,7 +10,12 @@ export interface ContactsMethods {
 
 export interface ContactsProps {
   operation: Operation;
+  enabled: boolean;
 }
+
+useContacts.defaultProps = {
+  enabled: true
+};
 
 /**
  * This hook can be used to store and then create a list of contacts.
@@ -19,7 +24,7 @@ export interface ContactsProps {
  * @returns the list of contacts that were created
  */
 export default function useContacts(props: ContactsProps): ContactsMethods {
-  const { operation } = props;
+  const { operation, enabled } = props;
   const useContactClient = useContactsClient();
 
   const createBodyPayload = (): Contact => {
@@ -37,6 +42,7 @@ export default function useContacts(props: ContactsProps): ContactsMethods {
   };
 
   const createContact = async (): Promise<Contact | null> => {
+    if (enabled === false) return null;
     const contact = createBodyPayload();
     return await useContactClient.create(contact);
   };

@@ -5,9 +5,10 @@ import { Operation } from '../../../ts/types/operation/operations';
 
 export const BankTransferOutcome = () => {
   const operationContext = useContext(OperationContext);
-  const contacts = useContacts({ operation: operationContext.operationContext as Operation });
-
-  console.log('[BankTransferOutcome - operationContext]', operationContext);
+  const contacts = useContacts({
+    operation: operationContext.operationContext as Operation,
+    enabled: true
+  });
 
   useEffect(() => {
     contacts.createContact();
