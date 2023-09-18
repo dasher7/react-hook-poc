@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import useContactsClient from '../../../client/useContactClient';
 import { FormWrapper } from '../../../components/FormWrapper/FormWrapper';
 import { ContactType } from '../../../ts/enums/contacts/contacts';
 import { BankTransferBody } from '../../../ts/types/BankTransfer/BankTransfer';
@@ -7,6 +8,7 @@ import { BankTransferForm } from '../commons/BankTransferForm';
 
 export default function BankTransferCompile() {
   const [data, setData] = useState<BankTransferBody | undefined>(undefined);
+  const useContactClient = useContactsClient();
 
   useEffect(() => {
     console.log(['BankTransferCompile - useEffect'], data);
@@ -28,11 +30,12 @@ export default function BankTransferCompile() {
     console.log(
       '[CreateContact] Step 1 - we need to get data from the children and manipulate them'
     );
-    return {
+    const contactToCreate = {
       name: dataBody.beneficiary.split(' ')[0],
       surname: dataBody.beneficiary.split(' ')[0],
       type: ContactType.PERSON
     } as Contact;
+    useContactClient.create(contactToCreate);
   };
 
   return (
