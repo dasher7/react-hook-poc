@@ -1,12 +1,18 @@
-# Getting Started with Create React App
+# React Hook - how can you save time and keep code clean
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run project
 
-In the project directory, you can run:
+Once you cloned the repository, run
 
-### `npm start`
+### `yarn install`
+
+That would download all the packages you need to run the application.
+
+In order to run the application:
+
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,33 +20,30 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+This project will also support documentation:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `yarn doc`
 
-### `npm run build`
+It will generate documentation using Jdoc.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**What's inside**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Client _it contains a fake client implementation for API_
+- Components _all of our basic components are here_
+- Context _mock to fake database or persistance method like cache or redux_
+- Hooks _the core of the whole project, it contains the useContancts hooks that is the whole point of the project_
+- Routes _nothing to say, it is just routes 😎_
+- Theme _Chakra UI theme config, still managing 🤓_
+- ts _interface, type, enum and they are never enough 😍_
+- Views _all of our pages_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project contains two solutions of implementing the following functions: create a contact from a From.
+The first one, you can follow by searching for **CreateContact**
+The second one, you can follow by searching for **useContact**
 
-### `npm run eject`
+**NOTE: to activate the solution of **useContact** just be sure to passe true to the import of useContacts in BankTransferOutcome**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### Do you want a challenge?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fork this project and try to implement a new view, with another form inside of it.
+Then, try to create a contact from that form using both solutions 🥸.
