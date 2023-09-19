@@ -3,9 +3,9 @@ import { Operation } from '../ts/types/operation/operations';
 
 interface OperationContext {
   /** the operation held in the context, it is the current operation we are working on */
-  operationContext: Partial<Operation>;
+  operationContext: Partial<Operation<unknown>>;
   /** callback to set and update the operation */
-  setOperationContext: (operation: Operation) => void;
+  setOperationContext: (operation: Operation<unknown>) => void;
 }
 
 /**
@@ -15,7 +15,7 @@ interface OperationContext {
 const OperationContext = createContext({
   operationContext: {},
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setOperationContext: (opration: Operation) => {}
+  setOperationContext: (opration: Operation<unknown>) => {}
 });
 
 export default OperationContext;

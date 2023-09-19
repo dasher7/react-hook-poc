@@ -21,10 +21,15 @@ export const BankTransferForm = (props: FormData) => {
   const operationContext = useContext(OperationContext);
 
   useEffect(() => {
-    const formValues = getValues();
-    setData(formValues);
-    console.log('[BankTransferForm - useEffect]', formValues);
-  }, [isSubmitting]);
+    return () => {
+      const formValues = getValues();
+      setData(formValues);
+      console.log(
+        '[CreateContact] Step (-1) - we have to send the data back to the parent ... to send them again in another component',
+        formValues
+      );
+    };
+  }, []);
 
   /**
    * It is the main point of the whole implementation
@@ -37,7 +42,7 @@ export const BankTransferForm = (props: FormData) => {
     console.log(
       '[CreateContact] Step 0 - we are getting values from the form and sending them to the main component'
     );
-    const operation: Operation = {
+    const operation: Operation<BankTransferBody> = {
       body: data,
       type: OperationEnum.BANK_TRANSFER,
       uid: '78798'
@@ -51,7 +56,9 @@ export const BankTransferForm = (props: FormData) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(3, 1fr)" gap={4} autoFlow={'row'}>
         <GridItem colSpan={3}>
-          <Text>Bonifico</Text>
+          <Text style={{ fontSize: 48, color: '#F5E3E0', fontWeight: 500, fontStyle: 'bold' }}>
+            Bonifico
+          </Text>
         </GridItem>
         <GridItem colSpan={2}>
           <Input

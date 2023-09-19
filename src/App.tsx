@@ -5,7 +5,7 @@ import { AppRoutes } from './routes/AppRoutes';
 import { Operation } from './ts/types/operation/operations';
 
 function App() {
-  const [operationContext, setOperationContext] = useState<Partial<Operation>>({});
+  const [operationContext, setOperationContext] = useState<Partial<Operation<unknown>>>({});
 
   return (
     <div className="App">

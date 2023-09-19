@@ -11,7 +11,7 @@ export default function BankTransferCompile() {
   const useContactClient = useContactsClient();
 
   useEffect(() => {
-    console.log(['BankTransferCompile - useEffect'], data);
+    console.log(['BankTransferCompile - useEffect - data'], data);
   }, [data]);
 
   /**

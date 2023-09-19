@@ -1,7 +1,7 @@
 import { OperationEnum } from "../../enums/operation/operation";
 
-export type Operation = {
+export type Operation<T> = {
       type: OperationEnum;
       uid: string;
-      body: unknown
+      body: T
 }
